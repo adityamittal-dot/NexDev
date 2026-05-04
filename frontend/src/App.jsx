@@ -13,7 +13,7 @@ function App() {
   const [userName, setUserName] = useState(localStorage.getItem('userName') || '');
 
   useEffect(() => {
-    fetch('https://backend-course-selling-csbc.onrender.com/course/preview')
+    fetch(`${import.meta.env.VITE_API_URL}/course/preview`)
       .then(res => res.json())
       .then(data => {
         if (data.courses) setCourses(data.courses);
@@ -23,7 +23,7 @@ function App() {
 
   const handleSignup = async () => {
     try {
-      const response = await fetch('https://backend-course-selling-csbc.onrender.com/user/signup', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/user/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, firstName, lastName })
@@ -42,7 +42,7 @@ function App() {
 
   const handleLogin = async () => {
     try {
-      const response = await fetch('https://backend-course-selling-csbc.onrender.com/user/signin', {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/user/signin`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password })
