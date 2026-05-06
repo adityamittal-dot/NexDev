@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Typography, Box, Button, Grid, Dialog, DialogTitle, DialogContent, DialogActions, TextField, Card, CardContent, CardMedia } from '@mui/material';
+import GitHubIcon from '@mui/icons-material/GitHub';
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
 function App() {
@@ -77,9 +78,45 @@ function App() {
       
       {/* Navbar */}
       <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', px: { xs: 2, md: 6 }, py: 3 }}>
-        <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: '-0.03em' }}>
-          NexDev.
-        </Typography>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+          <Typography variant="h6" sx={{ fontWeight: 800, letterSpacing: '-0.03em' }}>
+            NexDev.
+          </Typography>
+          <Button
+            href="https://github.com/adityamittal-dot/Backend-course-selling"
+            target="_blank"
+            variant="outlined"
+            size="small"
+            startIcon={<GitHubIcon />}
+            sx={{
+              borderRadius: 8,
+              borderColor: 'rgba(255,255,255,0.3)',
+              color: 'white',
+              textTransform: 'none',
+              display: { xs: 'none', sm: 'flex' },
+              '&:hover': { borderColor: 'rgba(255,255,255,0.6)', bgcolor: 'rgba(255,255,255,0.05)' }
+            }}
+          >
+            GitHub
+          </Button>
+          <Button
+            href="https://github.com/adityamittal-dot/Backend-course-selling"
+            target="_blank"
+            variant="outlined"
+            size="small"
+            sx={{
+              minWidth: 'auto',
+              p: 1,
+              borderRadius: '50%',
+              borderColor: 'rgba(255,255,255,0.3)',
+              color: 'white',
+              display: { xs: 'flex', sm: 'none' },
+              '&:hover': { borderColor: 'rgba(255,255,255,0.6)', bgcolor: 'rgba(255,255,255,0.05)' }
+            }}
+          >
+            <GitHubIcon fontSize="small" />
+          </Button>
+        </Box>
         <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 4, typography: 'body2', fontWeight: 500, color: 'rgba(255,255,255,0.7)' }}>
           <span style={{ cursor: 'pointer' }}>About</span>
           <span style={{ cursor: 'pointer' }}>Courses</span>
